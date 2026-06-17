@@ -27,10 +27,14 @@ body {
 .options_container {
     padding: 10px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     margin: 10px 0px;
 }
 
+.option {
+    display: flex;
+    justify-content: space-around;
+}
 .option_1,
 .option_2,
 .option_3 {
@@ -55,6 +59,10 @@ body {
     color: var(--color-primary);
 }
 
+.computer_election {
+    padding: 10px;
+    margin: 5px auto;
+}
 .score_container {
     padding: 20px;
 }
