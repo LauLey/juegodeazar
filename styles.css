@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #3A5F8C;
+    --color-accent: #e6a6b3;
+    --color-background: #e4e6e9;
+    --color-text: #2B2B2B;
+}
+
+body {
+    color: var(--color-text);
+    font-family: sans-serif,serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.header_container,
+.options_container,
+.score_container {
+    border: solid 2px var(--color-primary);
+    background-color: var(--color-background);
+    text-align: center;
+}
+
+.options_container {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0px;
+}
+
+.option_1,
+.option_2,
+.option_3 {
+    background-color: var(--color-accent);
+    border: solid 2px var(--color-accent);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.option_1:hover {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}
+
+.option_2:hover {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}
+
+.option_3:hover {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}
+
+.score_container {
+    padding: 20px;
+}
+
+.score_final {
+    display: flex;
+    justify-content: space-around;
+
+}
+.computer_score,
+.human_score {
+    padding: 30px;
+    border: solid 1px var(--color-primary);
+    border-radius: 5px;
+}
+
+.winner {
+    padding: 20px;
+    border: solid 2px var(--color-primary);
+    margin: 10px auto;
+}
