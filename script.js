@@ -9,8 +9,24 @@ function getComputerChoice () {
 }
 
 function getHumanChoice () {
-   let humanChoice = prompt("¿PIEDRA, PAPEL O TIJERAS?")
-   return humanChoice.toUpperCase()
+    const PIEDRA = document.querySelector(".option_1");
+    const PAPEL = document.querySelector(".option_2");
+    const TIJERAS = document.querySelector(".option_3");
+
+    let humanChoice =("")
+
+    PIEDRA.addEventListener("click", () => {
+        humanChoice = ("PIEDRA")
+    })
+
+    PAPEL.addEventListener("click", () => {
+        humanChoice = ("PAPEL")
+    })
+
+    TIJERAS.addEventListener("click", () => {
+        humanChoice = ("TIJERAS")
+    })
+
 }
 
 let humanScore = 0
@@ -46,11 +62,6 @@ playRound(humanChoice,computerChoice)
 }
 
 function playGame () {
-    gameRound ()
-    gameRound ()
-    gameRound ()
-    gameRound ()
-    gameRound ()
 
     if (humanScore>computerScore)
         console.log("Has ganado!")
@@ -60,4 +71,6 @@ function playGame () {
         console.log("Empatamos")
 }
 
-(playGame())
+const start = document.querySelector(".start");
+
+start.addEventListener("click", () => gameRound());

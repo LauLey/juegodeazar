@@ -24,6 +24,22 @@ body {
     text-align: center;
 }
 
+.start {
+    padding: 10px;
+    margin: 5px auto;
+    color: var(--color-accent);
+    text-align: center;
+    border: solid 2px var(--color-text);
+    background-color: var(--color-primary);
+    border-radius: 10px;
+}
+
+.start:hover {
+    color: var(--color-text);
+    border: solid 2px var(--color-primary);
+    background-color: var(--color-accent);
+}
+
 .options_container {
     padding: 10px;
     display: flex;
@@ -44,16 +60,8 @@ body {
     padding: 10px;
 }
 
-.option_1:hover {
-    background-color: var(--color-background);
-    color: var(--color-primary);
-}
-
-.option_2:hover {
-    background-color: var(--color-background);
-    color: var(--color-primary);
-}
-
+.option_1:hover,
+.option_2:hover,
 .option_3:hover {
     background-color: var(--color-background);
     color: var(--color-primary);
