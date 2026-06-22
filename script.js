@@ -8,69 +8,105 @@ function getComputerChoice () {
         return ("TIJERAS")
 }
 
-function getHumanChoice () {
-    const PIEDRA = document.querySelector(".option_1");
-    const PAPEL = document.querySelector(".option_2");
-    const TIJERAS = document.querySelector(".option_3");
+const PIEDRA = document.querySelector(".option_1");
+const PAPEL = document.querySelector(".option_2");
+const TIJERAS = document.querySelector(".option_3");
+
 
     let humanChoice =("")
 
     PIEDRA.addEventListener("click", () => {
         humanChoice = ("PIEDRA")
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice,computerChoice)
     })
 
     PAPEL.addEventListener("click", () => {
         humanChoice = ("PAPEL")
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice,computerChoice)
     })
 
     TIJERAS.addEventListener("click", () => {
         humanChoice = ("TIJERAS")
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice,computerChoice)
     })
 
+function endGame() {
+    PIEDRA.disabled = ((humanScore===5)||(computerScore===5));
+    PAPEL.disabled = ((humanScore===5)||(computerScore===5));
+    TIJERAS.disabled = ((humanScore===5)||(computerScore===5));
+    
+    if (humanScore>computerScore)
+        winner.textContent ="Has ganado!";
+        else if (humanScore<computerScore)
+        winner.textContent ="Yo gané!";
 }
 
 let humanScore = 0
 let computerScore = 0
+const computer_election = document.querySelector(".computer_election");
+const div = document.createElement("div");
+const computer_score = document.querySelector(".computer_score");
+const human_score = document.querySelector(".human_score");
+const p1 = document.createElement("p");
+const p2 = document.createElement("p");
+const winner = document.querySelector(".winner");
+computer_score.appendChild(p1);
+human_score.appendChild(p2);
+computer_election.appendChild(div);
 
 function playRound (humanChoice,computerChoice) {
-    if (humanChoice===computerChoice)
-        console.log("Lo mismo, empate")
+
+    if (humanChoice===computerChoice) {
+        div.textContent = "Lo mismo, empate";
+    }
+
     else if ((humanChoice==="PIEDRA")&&(computerChoice==="TIJERAS"))
-        {console.log("Tijeras, tu ganas")
+        {div.textContent = "Tijeras, tu ganas";
         humanScore = humanScore + 1;}
+        
     else if ((humanChoice==="PAPEL")&&(computerChoice==="PIEDRA"))
-        {console.log("Piedra, me ganaste")
+        {div.textContent = "Piedra, me ganaste";
             humanScore = humanScore + 1;}
+
     else if((humanChoice==="TIJERAS")&&(computerChoice==="PAPEL"))
-        {console.log("Tu ganas, yo puse papel")
+        {div.textContent = "Tu ganas, yo puse papel";
         humanScore = humanScore + 1;}
+
     else if ((humanChoice==="TIJERAS")&&(computerChoice==="PIEDRA"))
-        {console.log("Piedra.Gané!")
+        {div.textContent = "Piedra.Gané!";
         computerScore = computerScore + 1;}
+
     else if((humanChoice==="PIEDRA")&&(computerChoice==="PAPEL"))
-        {console.log("Papel.Gané!")
+        {div.textContent = "Papel.Gané!";
         computerScore = computerScore + 1;}
+
     else if((humanChoice==="PAPEL")&&(computerChoice==="TIJERAS"))
-        {console.log("Tijeras.Gané!")
+        {div.textContent = "Tijeras.Gané!";
         computerScore = computerScore + 1;}
-}
 
-function gameRound () {
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
-playRound(humanChoice,computerChoice)
-}
+        
+        p1.textContent = computerScore;
+        p2.textContent = humanScore;
 
-function playGame () {
+    if ((humanScore===5)||(computerScore===5)){
+            endGame ();
+    }
+    }
 
-    if (humanScore>computerScore)
-        console.log("Has ganado!")
-    else if (humanScore<computerScore)
-        console.log("Yo gané!")
-    else if (humanScore===computerScore)
-        console.log("Empatamos")
-}
 
 const start = document.querySelector(".start");
 
-start.addEventListener("click", () => gameRound());
+start.addEventListener ("click", () => {
+    humanScore = 0;
+    computerScore = 0;
+    div.textContent = "¿PIEDRA, PAPEL O TIJERA?";
+    p1.textContent = computerScore;
+    p2.textContent = humanScore;
+    winner.textContent = "El ganador es:";
+    PIEDRA.disabled = ((humanScore===5)||(computerScore===5));
+    PAPEL.disabled = ((humanScore===5)||(computerScore===5));
+    TIJERAS.disabled = ((humanScore===5)||(computerScore===5));
+})
